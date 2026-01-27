@@ -8,21 +8,19 @@ export default function CarabinieriPage() {
       <Header />
 
       <CorpoTemplate
-        title="L’Arma dei Carabinieri"
-        subtitle="Presenza quotidiana sul territorio, tutela della legalità e servizio allo Stato."
-        heroImage="/carabinieri-hero.jpg"
-        heroColor="#0B1F33"
+        title="Esercito"
+        subtitle="Difesa della Patria, salvaguardia della pace internazionale e sostegno alla popolazione."
+        heroImage="/esercito-hero.jpg"
+        heroColor="#8d8b55"
         quote="“Nei secoli fedele.”"
         quoteAuthor="Motto dell’Arma dei Carabinieri"
         sections={[
           {
-            blockTitle: "Storia, organizzazione e compiti",
+            blockTitle: "Funzione e organizzazione",
             image: "/carabinieri2.jpeg",
             imageAlt: "Carabinieri",
             paragraphs: [
-              "L’Arma dei Carabinieri nasce ufficialmente il 13 luglio 1814, con le Regie Patenti emanate da Vittorio Emanuele I di Savoia. Fin dalla sua costituzione, al Corpo dei Carabinieri Reali viene affidata una duplice missione: difendere lo Stato e garantire l’ordine e la sicurezza pubblica.",
-              "Nel corso del tempo, l’Arma ha assunto una fisionomia sempre più moderna e articolata. I Decreti Legislativi del 2000 ne hanno confermato il ruolo storico, riconoscendole il rango di Forza Armata autonoma nell’ambito del Ministero della Difesa, accanto a Esercito, Marina e Aeronautica.",
-              "Dal 2016, con l’assorbimento del Corpo Forestale dello Stato, i Carabinieri sono diventati la più importante forza di polizia ambientale d’Europa, con competenze specifiche nella tutela del patrimonio forestale, ambientale e agroalimentare.",
+              "È la componente terrestre delle forze armate italiane ed è composta da marina, aeronautica e arma dei carabinieri. L’esercito italiano è diviso in 6 Armi, affiancate da 3 Corpi ciascuna, ognuna con la propria funzione specifica. La Fanteria ha la funzione di combattere via terra tramite uno scontro diretto per conquistare o difendere un territorio, mentre la Cavalleria è specializzata in ricognizione e supporto, utilizzata per la protezione dei fianchi dell’esercito. L'Artiglieria ha il compito di fornire supporto tramite l’uso di cannoni e missili. Il Genio è un corpo tecnico la quale funzione è quella di progettare strutture e superare ostacoli ed è a sua volta suddiviso in quattro categorie: pionieri, pontieri, ferrovieri e guastatori. Le Trasmissioni si occupano di gestire le comunicazioni e le tecnologie, dividendosi nelle specialità Telematica e Guerra Elettronica. Infine, l'Arma dei Trasporti e Materiali assolve i compiti legati alla logistica dell’esercito e gestisce la manovra delle risorse."
             ],
           },
           {

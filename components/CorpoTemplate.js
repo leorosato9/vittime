@@ -68,7 +68,7 @@ export default function CorpoTemplate({
 
         {/* Contenuto hero */}
         <div className="corpoContainer corpoHeroInner">
-          <div className="corpoKicker">Approfondimento</div>
+          <div className="corpoKicker"></div>
 
           <h1 className="corpoTitle">{title}</h1>
 

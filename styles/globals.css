@@ -73,17 +73,50 @@ strong {
 
 
 
+/* === HERO SECTION UPDATES === */
+
 .Title {
   height: 100vh;
   display: flex;
   align-items: center;
+  /* Aggiungi justify-content per separare testo e immagine */
+  justify-content: space-between; 
   padding: 0 5vw;
   position: relative;
+  gap: 4vw; /* Spazio tra testo e immagine */
 }
 
-
+/* Modifica la larghezza della parte sinistra */
 .TitleLeft {
-  width: 45%;
+  width: 50%; /* Occupa metà spazio */
+  max-width: 600px; /* Evita che il testo si allarghi troppo su schermi enormi */
+  z-index: 2; /* Assicura che il testo stia sopra se serve */
+}
+
+/* Nuova classe per la parte destra */
+.TitleRight {
+  width: 45%; /* L'altra metà (lasciando un po' di spazio per il gap) */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stile dell'immagine Hero */
+.HeroImage {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* Non farla diventare più alta dello schermo */
+  object-fit: cover;
+  border-radius: 20px; /* Angoli arrotondati come le altre card */
+  box-shadow: 0 20px 50px rgba(11, 31, 51, 0.2); /* Un'ombra elegante */
+  animation: fadeIn 1.5s ease-out; /* Effetto comparsa opzionale */
+}
+
+/* Animazione opzionale per l'immagine */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .BigTitle {
@@ -176,7 +209,8 @@ strong {
 
 
 .SlideTitle {
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: clamp(2.8rem, 4.6vw, 4.6rem);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   margin: 0;
   color: #7AA3C7;
@@ -186,7 +220,7 @@ strong {
   margin-top: 1.2rem;
   font-size: clamp(1.05rem, 1.4vw, 1.3rem);
   line-height: 1.6;
-  color: #7AA3C7;
+  color: #0B1F33;
   max-width: 55ch;
 }
 
@@ -227,6 +261,8 @@ strong {
     font-weight: 400;
 
 }
+
+
 
 /* =======================
    Gioco — integrato nella slide
@@ -585,6 +621,202 @@ transform: scale(1);
   opacity: 0;
 }
 
+/* === STILI AGGIUNTIVI PER IL VIDEO E TEASER === */
+
+/* 1. Il Teaser nella Hero (Prima Slide) */
+.InterviewTeaser {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 1rem 1.4rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(11, 31, 51, 0.1);
+  cursor: pointer;
+  width: fit-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.InterviewTeaser:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.TeaserIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #7AA3C7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.TeaserText {
+  font-family: 'Montserrat', sans-serif;
+  color: #0B1F33;
+  line-height: 1.3;
+  font-size: 0.95rem;
+}
+
+/* 2. La Sezione Video */
+.Slide--video {
+  background-color: #f4f7f9; /* Un grigio chiarissimo per staccare dal bianco */
+}
+
+/* Correggi questo blocco nel tuo CSS */
+.VideoLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Due colonne: testo a sx, video a dx */
+  gap: 4vw;
+  width: 100%;
+  
+  /* === LA CORREZIONE È QUI === */
+  /* Usiamo 10vw a sinistra per allinearci perfettamente a .SlideLeft e .Game */
+  padding-left: 10vw; 
+  padding-right: 10vw; /* Bilanciamo a destra */
+  
+  align-items: center;
+  /* Rimosso max-width e margin: 0 auto per evitare che si centri diversamente */
+}
+
+.VideoInfo {
+  /* Assicuriamoci che il testo non sia troppo largo */
+  max-width: 55ch; 
+}
+
+/* Aggiorna anche la media query per Tablet/Mobile per mantenere l'allineamento responsive */
+@media (max-width: 1024px) {
+  .VideoLayout {
+    grid-template-columns: 1fr;
+    text-align: center; /* Su mobile centriamo tutto come le altre slide */
+    gap: 2rem;
+    margin-top: 0;
+    
+    /* Su mobile riduciamo il padding come fanno le altre sezioni (spesso usano 6vw) */
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .VideoInfo {
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  .VideoWrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+.VideoWrapper {
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(11, 31, 51, 0.2);
+  background: #000;
+  /* Mantiene aspect ratio 16:9 se il video non carica subito */
+  aspect-ratio: 16 / 9; 
+}
+
+.StyledVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .InterviewTeaser {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  .TeaserText {
+    font-size: 0.85rem;
+  }
+}
+
+/* === NEWS TICKER STYLE === */
+
+.TickerContainer {
+  margin-top: 1.5rem;
+  width: 100%;
+  overflow: hidden; /* Nasconde il testo che esce dai bordi */
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.TickerLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+}
+
+.TickerWrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap; /* Impedisce al testo di andare a capo */
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); /* Sfuma i bordi */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.TickerTrack {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollTicker 120s linear infinite; /* 30s è la velocità, aumentala per rallentare */
+}
+
+/* Ferma l'animazione quando passi col mouse */
+.TickerWrapper:hover .TickerTrack {
+  animation-play-state: paused;
+}
+
+.TickerItem {
+  font-family: 'Montserrat', sans-serif; /* O 'Poppins' se preferisci */
+  font-size: 1.9rem; /* Bello grande e leggibile */
+  color: white;
+
+  font-weight: 600;
+}
+
+.TickerSeparator {
+  display: inline-block;
+  margin: 0 1.5rem; /* Spazio tra le frasi */
+  color: #7AA3C7; /* Colore dell'accento/pallino */
+  font-size: 1.5rem;
+  transform: translateY(2px);
+}
+
+/* L'animazione che sposta il testo */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Si sposta esattamente della metà (perché abbiamo duplicato il contenuto) */
+  }
+}
+
+/* Responsive: su mobile riduciamo un po' il font */
+@media (max-width: 768px) {
+  .TickerItem {
+    font-size: 1.1rem;
+  }
+  .TickerLabel {
+    font-size: 0.8rem;
+  }
+}
 
 /* =========================
    CORPO TEMPLATE (12 pagine)
@@ -650,15 +882,86 @@ transform: scale(1);
   z-index: 0;
 }
 
+.homeImage {
+  height: 400px;
+}
+
+/* Contenitore flessibile per immagine + didascalia */
+.HeroImageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra il testo rispetto alla foto */
+  width: 100%;
+}
+
+/* Assicuriamoci che l'immagine non abbia margini strani */
+.HeroImage.homeImage {
+  margin-bottom: 15px; /* Spazio tra foto e didascalia */
+  display: block;
+}
+
+.CaptionUnder {
+  text-align: center; /* Centra il testo */
+  width: 100%;
+  padding: 0 10px;
+}
+
+.CaptionText {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0B1F33; /* Colore scuro come i tuoi titoli */
+}
+
+.CaptionLink {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #7AA3C7; /* Il tuo azzurro */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
+}
+
+.CaptionLink:hover {
+  transform: translateY(3px); /* Effetto movimento verso il basso al passaggio del mouse */
+}
+
+.Arrow {
+  font-size: 1.2rem;
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Se la foto è troppo alta, riduciamola un po' per far stare bene il testo sotto */
+.HeroImage {
+  max-height: 70vh !important; 
+}
+
+/* Su Mobile, riduciamo i font */
+@media (max-width: 768px) {
+  .CaptionText {
+    font-size: 0.95rem;
+  }
+}
+
 .corpoKicker {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
   color: rgba(255,255,255,0.92);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -791,7 +1094,7 @@ transform: scale(1);
 .corpoMedia img {
   display: block;
   width: 100%;
-  height: clamp(280px, 35vw, 420px);
+  height: clamp(320px, 35vw, 520px);
   object-fit: cover;
   filter: saturate(1.02) contrast(1.02);
 }
@@ -1187,6 +1490,109 @@ transform: scale(1);
   }
   .slugApprofondimento {
     padding: 0 5vw;
+  }
+}
+
+/* === FOOTER STYLES AGGIORNATI === */
+
+/* Layout Griglia per dividere Mappa e Nomi */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Due colonne uguali */
+  gap: 4rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: left; /* Allinea il testo a sinistra */
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: fit-content;
+}
+
+.footerAddress {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.mapContainer {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sezione Crediti */
+.creditsWrapper {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.teacherBox {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.teacherBox .role {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.2rem;
+}
+
+.teacherBox .name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.studentsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Due colonne di nomi */
+  gap: 0.8rem;
+}
+
+.studentName {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* === RESPONSIVE FOOTER === */
+/* Su tablet e mobile, le colonne diventano una sotto l'altra */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footerTitle {
+    width: 100%; /* Linea divisoria intera su mobile */
+  }
+  
+  .studentsGrid {
+    grid-template-columns: repeat(2, 1fr); /* Mantiene 2 colonne nomi anche su mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .studentsGrid {
+    grid-template-columns: 1fr; /* Una colonna nomi su schermi molto piccoli */
   }
 }
 

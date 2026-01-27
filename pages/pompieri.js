@@ -8,16 +8,16 @@ export default function CarabinieriPage() {
       <Header />
 
       <CorpoTemplate
-        title="L’Arma dei Carabinieri"
+        title="Vigili del Fuoco"
         subtitle="Presenza quotidiana sul territorio, tutela della legalità e servizio allo Stato."
-        heroImage="/carabinieri-hero.jpg"
-        heroColor="#0B1F33"
-        quote="“Nei secoli fedele.”"
-        quoteAuthor="Motto dell’Arma dei Carabinieri"
+        heroImage="/pompieri-hero.jpeg"
+        heroColor="#a52019"
+        quote="“Domiamo le fiamme, doniamo i cuori”"
+        quoteAuthor="Motto dei Vigili del Fuoco"
         sections={[
           {
             blockTitle: "Storia, organizzazione e compiti",
-            image: "/carabinieri2.jpeg",
+            image: "/carabinieri1.jpg",
             imageAlt: "Carabinieri",
             paragraphs: [
               "L’Arma dei Carabinieri nasce ufficialmente il 13 luglio 1814, con le Regie Patenti emanate da Vittorio Emanuele I di Savoia. Fin dalla sua costituzione, al Corpo dei Carabinieri Reali viene affidata una duplice missione: difendere lo Stato e garantire l’ordine e la sicurezza pubblica.",
@@ -27,7 +27,7 @@ export default function CarabinieriPage() {
           },
           {
             blockTitle: "Servire lo Stato, anche a costo della vita",
-            image: "/carabinieri1.webp",
+            image: "/carabinieri2.jpg",
             imageAlt: "Memoria e impegno",
             paragraphs: [
               "Nel corso della loro lunga storia, i Carabinieri hanno pagato un prezzo altissimo in termini di vite umane. Molti militari sono caduti nello svolgimento del servizio, difendendo la popolazione, contrastando la criminalità organizzata, il terrorismo o operando in contesti di guerra e missioni di pace.",
