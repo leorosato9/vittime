@@ -1283,10 +1283,6 @@ transform: scale(1);
   margin-right: 10vw;
 }
 
-.opinionSector {
-  /* Eventuali regole aggiuntive per il blocco delle opinioni */
-}
-
 .audioPlayerContainer {
   text-align: center;
   margin: 3rem 0;
