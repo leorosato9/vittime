@@ -17,7 +17,7 @@ export default function CarabinieriPage() {
         sections={[
           {
             blockTitle: "Storia, organizzazione e compiti",
-            image: "/carabinieri2.jpeg",
+            image: "/carabinieri1.png",
             imageAlt: "Carabinieri",
             paragraphs: [
               "L’Arma dei Carabinieri nasce ufficialmente il 13 luglio 1814, con le Regie Patenti emanate da Vittorio Emanuele I di Savoia. Fin dalla sua costituzione, al Corpo dei Carabinieri Reali viene affidata una duplice missione: difendere lo Stato e garantire l’ordine e la sicurezza pubblica.",
@@ -27,7 +27,7 @@ export default function CarabinieriPage() {
           },
           {
             blockTitle: "Servire lo Stato, anche a costo della vita",
-            image: "/carabinieri1.webp",
+            image: "/carabinieri2.jpg",
             imageAlt: "Memoria e impegno",
             paragraphs: [
               "Nel corso della loro lunga storia, i Carabinieri hanno pagato un prezzo altissimo in termini di vite umane. Molti militari sono caduti nello svolgimento del servizio, difendendo la popolazione, contrastando la criminalità organizzata, il terrorismo o operando in contesti di guerra e missioni di pace.",
@@ -37,7 +37,7 @@ export default function CarabinieriPage() {
           },
           {
             blockTitle: "Una testimonianza viva",
-            image: "/carabinieri3.jpeg",
+            image: "/carabinieri3.jpg",
             imageAlt: "Testimonianza",
             paragraphs: [
               "A Trieste vive Daniele Livieri, Maresciallo dei Carabinieri e sopravvissuto alla strage di Nassiriya. Arruolato nel 1982, Livieri ha partecipato a missioni ad alto rischio in Bosnia, Kosovo e Iraq, nell’ambito dell’operazione “Antica Babilonia”.",

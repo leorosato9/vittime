@@ -1,3 +1,8 @@
+/* RESET GLOBALE: Aggiungilo come primissima cosa nel file CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* === General Styles === */
 body {
   font-family: 'Montserrat', sans-serif;
@@ -52,12 +57,15 @@ strong {
   font-weight: bold;
 }
 
-/* === HomePage Styles === */
+
 .container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0 10vw;
+  /* Usa la variabile */
+  padding: 0 var(--page-gutter);
+  
+  /* Allineamento monitor giganti */
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto; /* Centra il blocco nel monitor */
 }
 
 .fullWidthImage {
@@ -178,10 +186,6 @@ strong {
   opacity: 0.95;
 }
 
-#who-section .ScrollHint {
-  bottom: 20vh;
-}
-
 
 .Slide,
 .Title {
@@ -201,12 +205,19 @@ strong {
   align-items: center;
 }
 
+.artslide {
+  max-width:100000px
+}
+
 
 .SlideLeft {
-  width: 50%;
+  width: 60%;
   padding-left: 10vw;
 }
 
+.cost {
+  font-style: italic;
+}
 
 .SlideTitle {
   font-size: clamp(2.8rem, 4.6vw, 4.6rem);
@@ -241,10 +252,6 @@ strong {
 .SlideButton:hover {
   opacity: 0.9;
 }
-#who-section,
-#intro-section {
-  scroll-margin-top: calc(var(--logo-height) + var(--header-offset));
-}
 
 
 .Slide--dark {
@@ -262,8 +269,6 @@ strong {
 
 }
 
-
-
 /* =======================
    Gioco — integrato nella slide
    ======================= */
@@ -273,27 +278,16 @@ strong {
   padding-left: 10vw;
 }
 
-.GameContent {
-  max-width: 70ch;
-}
-
 .GameTitle {
-  font-size: clamp(2.8rem, 4.6vw, 4.6rem);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: #7AA3C7;
   margin: 0 0 0.6rem 0;
 }
 
-.GameProgress {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: black;
-  margin-bottom: 1.2rem;
-}
 
 .GameScenarioTitle {
-  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  font-size: clamp(2.8rem, 2.4vw, 2.4rem);
   font-weight: 800;
   color: #7AA3C7;
   margin-bottom: 0.6rem;
@@ -445,14 +439,39 @@ strong {
     grid-template-columns: 1fr;
   }
 }
-
+/* === BOXES GRID (Aggiornata per Mega Schermi) === */
 .boxesGrid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  
+  /* MODIFICA CHIAVE: Gap dinamico invece di fisso */
+  /* Prima era 18px. Ora cresce con lo schermo. */
+  gap: clamp(18px, 2vw, 50px); 
+  
   margin-top: 2.2rem;
   margin-bottom: 2.5rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  
+  /* Partenza Mobile */
+  grid-template-columns: 1fr;
+}
+
+/* LE TUE MEDIA QUERIES PER LE COLONNE (Rimangono uguali) */
+@media (min-width: 600px) {
+  .boxesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .boxesGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1600px) {
+  .boxesGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 2200px) {
+  .boxesGrid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .boxCard {
@@ -690,30 +709,6 @@ transform: scale(1);
   max-width: 55ch; 
 }
 
-/* Aggiorna anche la media query per Tablet/Mobile per mantenere l'allineamento responsive */
-@media (max-width: 1024px) {
-  .VideoLayout {
-    grid-template-columns: 1fr;
-    text-align: center; /* Su mobile centriamo tutto come le altre slide */
-    gap: 2rem;
-    margin-top: 0;
-    
-    /* Su mobile riduciamo il padding come fanno le altre sezioni (spesso usano 6vw) */
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
-
-  .VideoInfo {
-    margin: 0 auto 1.5rem auto;
-  }
-  
-  .VideoWrapper {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-
 .VideoWrapper {
   width: 100%;
   position: relative;
@@ -774,7 +769,7 @@ transform: scale(1);
 .TickerTrack {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollTicker 120s linear infinite; /* 30s è la velocità, aumentala per rallentare */
+  animation: scrollTicker 120s linear infinite;
 }
 
 /* Ferma l'animazione quando passi col mouse */
@@ -818,102 +813,6 @@ transform: scale(1);
   }
 }
 
-/* =========================
-   CORPO TEMPLATE (12 pagine)
-   ========================= */
-
-:root { --corpo-gutter: 10vw; }
-
-
-.corpoContainer {
-  width: min(var(--corpo-max), 100%);
-  margin-inline: auto;
-  padding-inline: var(--corpo-gutter);
-  box-sizing: border-box;
-}
-
-
-/* wrapper generale */
-.corpoPage {
-  width: 100%;
-}
-
-/* HERO */
-.corpoHero {
-  width: 100vw;
-  min-height: 50vh;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: calc(var(--logo-height) + 60px) 0 52px; /* bottom un po’ più “hero” */
-}
-
-/* invece di centrare con margin:0 auto, lo allineiamo con .corpoContainer */
-.corpoHeroInner {
-  position: relative;
-  z-index: 2;
-  margin-left: 0vw;
-}
-
-.corpoHero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    var(--hero-color) 100%
-  );
-  z-index: 1;
-}
-
-
-.corpoHeroImage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.03);
-  filter: saturate(1.05) contrast(1.03);
-  z-index: 0;
-}
-
-.homeImage {
-  height: 400px;
-}
-
-/* Contenitore flessibile per immagine + didascalia */
-.HeroImageWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra il testo rispetto alla foto */
-  width: 100%;
-}
-
-/* Assicuriamoci che l'immagine non abbia margini strani */
-.HeroImage.homeImage {
-  margin-bottom: 15px; /* Spazio tra foto e didascalia */
-  display: block;
-}
-
-.CaptionUnder {
-  text-align: center; /* Centra il testo */
-  width: 100%;
-  padding: 0 10px;
-}
-
-.CaptionText {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #0B1F33; /* Colore scuro come i tuoi titoli */
-}
-
 .CaptionLink {
   margin-top: 10px;
   background: none;
@@ -934,26 +833,114 @@ transform: scale(1);
   transform: translateY(3px); /* Effetto movimento verso il basso al passaggio del mouse */
 }
 
+/* Stile della freccia */
 .Arrow {
   font-size: 1.2rem;
+  /* Applica l'animazione 'bounceArrow': dura 1.5s e continua all'infinito */
   animation: bounceArrow 1.5s infinite;
 }
 
+/* Definizione del movimento (Keyframes) */
 @keyframes bounceArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
-/* Se la foto è troppo alta, riduciamola un po' per far stare bene il testo sotto */
-.HeroImage {
-  max-height: 70vh !important; 
-}
-
-/* Su Mobile, riduciamo i font */
-@media (max-width: 768px) {
-  .CaptionText {
-    font-size: 0.95rem;
+  0%, 100% { 
+    transform: translateY(0); /* Posizione di partenza */
   }
+  50% { 
+    transform: translateY(4px); /* Si sposta in basso di 4 pixel */
+  }
+}
+
+.CaptionLink:hover {
+  transform: translateY(3px); /* Il pulsante scende leggermente al passaggio del mouse */
+}
+
+/* =========================
+   CORPO TEMPLATE (12 pagine)
+   ========================= */
+
+:root { --corpo-gutter: 10vw; }
+
+.corpoContainer {
+  width: min(var(--corpo-max), 100%);
+  margin-inline: auto;
+  padding-inline: var(--corpo-gutter);
+  box-sizing: border-box;
+}
+
+/* wrapper generale */
+.corpoPage {
+  width: 100%;
+}
+
+/* HERO */
+.corpoHero {
+  width: 100vw;
+  min-height: 50vh;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--logo-height) + 60px) 0 52px; /* bottom un po’ più “hero” */
+}
+
+/* Contenitore principale Foto + Didascalia */
+.HeroImageWrapper {
+  display: flex;
+  flex-direction: column; /* Impila foto e didascalia in verticale */
+  align-items: center;    /* CENTRA orizzontalmente la foto e il testo */
+  width: 100%;
+}
+
+/* Il blocco sotto la foto (Testo + Link) */
+.CaptionUnder {
+  margin-top: 15px;       /* Spazio tra la foto e il testo */
+  display: flex;
+  flex-direction: column; /* Impila il testo sopra e il bottone sotto */
+  align-items: center;    /* CENTRA il bottone rispetto al testo */
+  text-align: center;     /* Centra il testo stesso se va su due righe */
+  width: 100%;
+}
+
+/* Assicuriamoci che il testo abbia un margine corretto */
+.CaptionText {
+  margin: 0 0 10px 0; /* Un po' di spazio sotto il testo prima del bottone */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0B1F33;
+}
+
+
+/* invece di centrare con margin:0 auto, lo allineiamo con .corpoContainer */
+.corpoHeroInner {
+  position: relative;
+  z-index: 2;
+  margin-left: 0vw;
+}
+
+.corpoHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--hero-color) 100%
+  );
+  z-index: 1;
+}
+
+.corpoHeroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  filter: saturate(1.05) contrast(1.03);
+  z-index: 0;
 }
 
 .corpoKicker {
@@ -986,17 +973,12 @@ transform: scale(1);
   max-width: 60ch;
 }
 
-/* QUOTE block */
-.corpoQuoteWrap {
-  transform: translateY(-28px);
-  margin-left: 10vw;
-}
 
 .corpoQuote {
   background: #ffffff;
   border: 1px solid var(--corpo-line);
   border-radius: var(--corpo-radius);
-  padding: clamp(18px, 2.6vw, 34px);
+  padding-top: 3vh;
   position: relative;
   overflow: hidden;
 }
@@ -1041,8 +1023,6 @@ transform: scale(1);
 #corpo-first-title {
   scroll-margin-top: calc(var(--logo-height) + var(--header-offset) + 24px);
 }
-
-
 
 .corpoSection:last-child {
   border-bottom: none;
@@ -1111,7 +1091,7 @@ transform: scale(1);
   pointer-events: none;
 }
 
-/* Responsive */
+/* Responsive specifici per il layout Corpo */
 @media (max-width: 980px) {
   .corpoHero {
     min-height: 86vh;
@@ -1133,6 +1113,8 @@ transform: scale(1);
   .corpoQuoteWrap {
     transform: translateY(-18px);
   }
+  
+  :root { --corpo-gutter: 6vw; } 
 }
 
 @media (max-width: 560px) {
@@ -1143,20 +1125,8 @@ transform: scale(1);
   .corpoMedia img {
     height: 260px;
   }
-
-}
-
-@media (max-width: 980px) {
-  :root { --corpo-gutter: 6vw; } /* su tablet riduci un filo il margine */
-  .corpoSection { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 560px) {
+  
   :root { --corpo-gutter: 5vw; }
-}
-/* === Slug Page Styles === */
-.slugContainer {
-  /* Stili specifici per le pagine slug, se necessari */
 }
 
 .slugTop {
@@ -1677,10 +1647,12 @@ transform: scale(1);
 /* Extra Large Screens (min-width: 1440px) */
 @media (min-width: 1440px) {
   .container {
-    max-width: 1400px;
+
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 5vw;
   }
+
   h1 {
     font-size: 3.8rem;
   }
@@ -1693,12 +1665,394 @@ transform: scale(1);
   .fullWidthImage {
     height: 70vh;
   }
-  .degustazioniList {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
   .slugTop,
   .slugApprofondimento {
     padding: 2vw 0vw;
   }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 5vw;
+  }
+
+  /* Ingrandimento titoli */
+  .BigTitle { font-size: 8.5rem; }
+  .BigSubtitle { font-size: 2.2rem; }
+  .SlideTitle { font-size: 4rem; }
+  .SlideText { font-size: 1.6rem; }
+  
+  /* Ingrandimento testi generali */
+  h1 { font-size: 4rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+}
+
+/* Mega TV e Monitor UltraWide (4K+) */
+@media (min-width: 2200px) {
+  /* Ingrandimento estremo per visibilità da lontano */
+  .BigTitle { font-size: 12rem; }
+  .BigSubtitle { font-size: 3.5rem; }
+  
+  .SlideTitle { font-size: 6rem; }
+  .SlideText { font-size: 2.2rem; }
+  
+  /* Testi dei box e ticker */
+  .boxOverlay h2 { font-size: 2.5rem; }
+  .TickerItem { font-size: 3rem; }
+  
+  /* Testi generali */
+  p, .studentName, .footerAddress {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM
+   Aggiungi questo blocco alla fine del tuo file CSS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TABLET / IPAD / LAPTOP PICCOLI (da 769px a 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+
+  /* === HEADER: Testo su due righe === */
+  :root {
+    --header-offset: 60px; /* Un po' più alto per far stare le due righe */
+    --logo-height: 70px;
+    --gap-from-line: 3vw;
+  }
+
+  .header {
+    height: 100px; /* Altezza flessibile */
+    padding-left: 10vh;
+  }
+
+  .textH {
+    white-space: normal; /* Permette il testo a capo */
+    max-width: 16ch; /* Forza l'a capo restringendo la larghezza */
+    text-align: center;
+    line-height: 1.2;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+  #interview-section {
+        scroll-margin-top: 100px;
+  min-height: 100vh; /* Forza la sezione a occupare almeno il 100% dell'altezza del browser */
+  display: flex;
+  align-items: center; /* Centra verticalmente il contenuto (testo + video) */
+  justify-content: center;
+}
+
+  .Slide--video {
+    padding: 3rem 0;
+    height: auto;
+    min-height: auto;
+  }
+
+  .VideoLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* 1. Il Testo va per primo */
+  .VideoInfo {
+    order: 1; 
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  /* 2. Il Video va in mezzo ed è più PICCOLO */
+  .VideoWrapper {
+    order: 2;
+    width: 80%; /* Rimpicciolito (era 100%) */
+    max-width: 700px; /* Limite massimo */
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ombra più leggera */
+  }
+
+/* === 3. TICKER MOBILE (Corretto) === */
+  
+  .TickerContainer {
+    order: 3;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    
+    /* Rimuove sfondo e bordi come richiesto */
+    background: transparent !important; 
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Maschera opzionale per sfumare i lati */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .TickerWrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .TickerTrack {
+    display: flex;          
+    flex-wrap: nowrap;      /* FONDAMENTALE: Impedisce alle frasi di andare a capo */
+    width: max-content;     /* FONDAMENTALE: Allarga la traccia oltre lo schermo */
+    gap: 2rem;              
+    align-items: center;
+    
+    /* Animazione rallentata a 40s per essere leggibile */
+    animation: scrollTicker 70s linear infinite; 
+  }
+
+  .TickerItem {
+    font-size: 1.1rem;
+    white-space: nowrap;    /* Assicura che la singola frase non vada a capo */
+    flex-shrink: 0;         /* Assicura che la frase non venga schiacciata */
+    color: #ffffff;         
+    font-weight: 600;
+  }
+  
+  .TickerLabel {
+    display: none; 
+  }
+  
+  .TickerItem { font-size: 1.4rem; }
+  .SlideTitle { font-size: 2.8rem; }
+
+
+  /* === CORPO PAGES (Pagine specifiche) === */
+  .corpoSection,
+  .corpoSection.isReverse {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  .corpoSection .corpoMedia {
+    order: -1; 
+    width: 80%; 
+    margin: 0 auto;
+  }
+
+  .corpoText { margin: 0 auto; max-width: 90%; }
+  .corpoHeroInner { text-align: center; }
+  .corpoTitle { font-size: 3.5rem; text-align: left; margin: 0 auto; }
+  .corpoSubtitle { text-align: center; margin: 1rem auto 0 auto; }
+}
+/* --------------------------------------------------------------------------
+   2. MOBILE / SMARTPHONE (fino a 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* === 1. RESET GENERALE === */
+  *, .container, .Slide, .Title, .corpoHero, .fullWidthImage {
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 0;
+    width: 100%;
+  }
+
+  .ScrollHint { display: none !important; }
+
+  /* === 2. SEZIONE VIDEO (Modifiche richieste) === */
+  
+  .VideoLayout {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    padding: 0 1rem; /* Margini laterali ridotti per dare spazio al video */
+    gap: 1.5rem;
+  }
+
+  .VideoWrapper {
+    width: 100%; /* Occupa tutto lo spazio disponibile */
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Ombra per risaltare */
+    margin: 0 auto;
+    order: 2; /* Video al centro (o sotto il testo) */
+  }
+  
+  .VideoInfo {
+    order: 1; /* Testo sopra */
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+/* === 3. TICKER MOBILE CORRETTO === */
+  
+  .TickerContainer {
+    order: 3;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    
+    /* Nessuno sfondo/bordo */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Nasconde il testo che esce a destra/sinistra */
+    overflow: hidden; 
+    
+    /* Sfumatura ai lati */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .TickerWrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .TickerTrack {
+    display: flex;
+    align-items: center;
+gap: 4rem;
+    
+    /* === FIX CRUCIALE === */
+    /* Permette alla striscia di essere lunghissima, ignorando il limite dello schermo */
+    max-width: none !important; 
+    width: max-content;
+    flex-wrap: nowrap;
+    
+    /* Animazione fluida */
+    animation: scrollTicker 95s linear infinite; 
+  }
+
+  .TickerItem {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .TickerLabel {
+    display: none; 
+  }
+
+
+  /* === 4. LAYOUT GENERALE & CENTRATURA === */
+  
+  .Title, 
+  .Slide, 
+  .corpoHero,
+  .corpoSection,
+  .corpoSection.isReverse {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important; 
+    text-align: center !important; 
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .TitleLeft, .TitleRight, .SlideLeft, .corpoText {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto 1.5rem auto !important;
+    text-align: center !important;
+  }
+
+  /* === 5. FONT SIZES === */
+  
+  .BigTitle {
+    font-size: 4.2rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+  }
+
+  .SlideTitle, h1, .corpoTitle {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .BigSubtitle, .SlideText, .corpoParagraph {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* === 6. IMMAGINI & HEADER === */
+  
+  .HeroImage, .corpoMedia img, .slugImage {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .corpoMedia { width: 100%; order: -1; margin-bottom: 1.5rem; }
+  .InterviewTeaser { margin: 1.5rem auto; width: fit-content; }
+
+.header {
+    height: 70px;
+    padding: 0 1rem;
+    display: flex;
+    /* Cambia da space-between a center */
+    justify-content: center; 
+    align-items: center;
+    /* gap aggiunge spazio tra gli elementi centrati (es. tra logo e testo) */
+    gap: 15px; 
+    text-align: center;
+  }
+  
+  .header-item { padding: 0 !important; }
+  .logo { height: 40px; }
+  .textH { font-size: 0.85rem; }
+  
+/* === 6. FIX HERO (Titolo sopra, Foto sotto) === */
+  .Title {
+    /* Spazio in alto per non finire sotto l'header fisso */
+    padding-top: 110px; 
+    padding-bottom: 3rem;
+    
+    /* Ordine naturale: Prima il div sinistro (Titolo), poi il destro (Foto) */
+    display: flex;
+    flex-direction: column; 
+    
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .homeTitle {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .footer { text-align: center; }
+  .footerGrid { text-align: center; gap: 2rem; }
+}
+/* --------------------------------------------------------------------------
+   3. SCHERMI MOLTO PICCOLI (iPhone SE / Vecchi Android - < 380px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .BigTitle { font-size: 2.5rem; }
+  .corpoTitle { font-size: 2.2rem; }
+  h1 { font-size: 2rem; }
+  .header { padding: 0 1rem; }
 }

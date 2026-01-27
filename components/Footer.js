@@ -12,17 +12,16 @@ export default function Footer() {
       setMessage('Per favore, compila tutti i campi.');
       return;
     }
-    // ... (resto della logica fetch invariata)
   };
 
-  // === LISTA NOMI DA MODIFICARE ===
+  // === LISTA NOMI ===
   const professoressa = "Prof.ssa Milena Bodigoi";
   const studenti = [
     "Daniel Argenti", "Nicole Benevolo", "Davide Bertotti",
     "Francesco Bittolo Bon", "Veronica Braico", "Giulia Coloni",
     "Giovanni Contardo", "Francesca Forlin", "Giovanni Manià",
     "Vittoria Migliozzi", "Alessandro Murgia", "Chiara Poliaghi",
-    "Leonardo Rosato", "Lia Sartori", ,"Adam Subotic", 
+    "Leonardo Rosato", "Lia Sartori", "Adam Subotic", 
     "Giacomo Tamaro", "Federico Tessarin"
   ];
 
@@ -30,7 +29,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="footerContent">
         
-        {/* Nuova struttura a griglia */}
         <div className="footerGrid">
           
           {/* COLONNA 1: Mappa e Indirizzo */}
@@ -76,13 +74,33 @@ export default function Footer() {
 
         </div>
 
-        {/* Copyright esistente */}
+        {/* Sezione Legale e Copyright */}
         <div className="footerInfo">
           <hr style={{ borderColor: 'rgba(255,255,255,0.2)', margin: '2rem 0' }} />
           <p>
-            &copy; {new Date().getFullYear()} Ideato, progettato e realizzato interamente <br/>
+            © {new Date().getFullYear()} Ideato, progettato e realizzato interamente <br/>
             dalla classe 3C del Liceo Oberdan, Trieste
           </p>
+
+          {/* === LINK IUBENDA === */}
+          <div style={{ marginTop: '1.5rem', display: 'flex', gap: '20px', justifyContent: 'center' }}>
+            <a 
+              href="https://www.iubenda.com/privacy-policy/69440163" 
+              className="iubenda-white iubenda-noiframe iubenda-embed" 
+              title="Privacy Policy"
+              style={{ textDecoration: 'none', fontSize: '0.9rem', opacity: 0.8 }}
+            >
+              Privacy Policy
+            </a>
+            <a 
+              href="https://www.iubenda.com/privacy-policy/69440163/cookie-policy" 
+              className="iubenda-white iubenda-noiframe iubenda-embed" 
+              title="Cookie Policy"
+              style={{ textDecoration: 'none', fontSize: '0.9rem', opacity: 0.8 }}
+            >
+              Cookie Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -65,10 +65,9 @@ export default function HomePage() {
 
 
         {/* === NUOVA SEZIONE: ARTICOLO 54 === */}
-        <section className="Slide" id="art54-section">
+        <section className="Slide artslide" id="art54-section">
           <div className="SlideLeft">
-            {/* Ho ridotto leggermente il font-size inline perché il titolo è molto lungo */}
-            <h2 className="SlideTitle" style={{ fontSize: '2.8rem', color: "#0B1F33"}}>
+            <h2>
               Fedeltà allo stato e sacrificio: il valore delle vittime del dovere nella costruzione di una società giusta
             </h2>
             
@@ -76,7 +75,8 @@ export default function HomePage() {
               <p>
                 "Tutti i cittadini hanno il dovere di essere fedeli alla Repubblica e di osservarne la Costituzione e le leggi. <br></br> I cittadini cui sono affidate funzioni pubbliche hanno il dovere di adempierle con disciplina e onore, prestando giuramento nei casi stabiliti dalla legge"
               </p>
-              <p>
+              <p className='cost'>
+                Art. 54, Costituzione Italiana
               </p>
             </div>
           </div>
@@ -96,11 +96,9 @@ export default function HomePage() {
           <div className="SlideLeft">
             <h2 className="SlideTitle">Chi sono le vittime del dovere?</h2>
             <p className="SlideText">
-              Le vittime del dovere sono uomini e donne dello Stato che hanno perso la vita o riportato gravi conseguenze mentre svolgevano il proprio servizio in contesti di rischio.
-              Hanno operato per proteggere gli altri, spesso in situazioni di emergenza, pericolo o forte pressione.
-              Il loro impegno non si è limitato a un ruolo professionale, ma è stato una scelta di responsabilità e servizio.
-              Molti di loro hanno agito lontano dai riflettori, senza clamore, facendo semplicemente il proprio dovere.
-              Ricordarli significa riconoscere il valore di chi ha messo il bene comune davanti a tutto.
+Le vittime del dovere sono uomini e donne che hanno perso la vita o riportato gravi lesioni servendo lo Stato in contesti di rischio. Hanno protetto la collettività in situazioni di emergenza, trasformando l'impegno professionale in una scelta di responsabilità superiore.
+
+Molti di loro hanno agito con dedizione e umiltà, lontano dai riflettori. Ricordarli significa riconoscere il valore di chi ha anteposto il bene comune alla propria incolumità.
             </p>
           </div>
 
@@ -115,7 +113,7 @@ export default function HomePage() {
         {/* === GAME SECTION === */}
         <section className="Slide" id="game-section">
           <div className="Game">
-            <h2 className="GameTitle">Chi interviene?</h2>
+            <h1 className="GameTitle">Chi interviene?</h1>
             <GameQuiz />
           </div>
 
@@ -131,7 +129,7 @@ export default function HomePage() {
         <section className="Slide Slide--dark"  id="interview-section">
           <div className="VideoLayout">
             <div className="VideoInfo">
-              <h2 className="SlideTitle">La nostra intervista</h2>
+              <h1 className="SlideTitle">La nostra intervista</h1>
 
               <div className="TickerContainer">
                 <div className="TickerWrapper">
@@ -274,7 +272,7 @@ export default function HomePage() {
 
         {/* === BOXES GRID === */}
         <div className="introduction" id="intro-section">
-          <h2 className="homeTitle">Conoscere per ricordare</h2>
+          <h1 className="homeTitle">Conoscere per ricordare</h1>
         </div>
 
         <div className="boxesGrid">
@@ -320,9 +318,9 @@ export default function HomePage() {
             </a>
           </Link>
 
-          <Link href="/guardiacostiera" passHref legacyBehavior>
-            <a className="boxCard" style={{ backgroundImage: "url('/guardiacostiera.jpg')" }}>
-              <div className="boxOverlay"><h2>Guardia costiera</h2></div>
+          <Link href="/aeronautica" passHref legacyBehavior>
+            <a className="boxCard" style={{ backgroundImage: "url('/aeronautica.jpg')" }}>
+              <div className="boxOverlay"><h2>Aeronautica militare</h2></div>
             </a>
           </Link>
 
@@ -332,23 +330,6 @@ export default function HomePage() {
             </a>
           </Link>
 
-          <Link href="/aeronautica" passHref legacyBehavior>
-            <a className="boxCard" style={{ backgroundImage: "url('/aeronautica.jpg')" }}>
-              <div className="boxOverlay"><h2>Aeronautica militare</h2></div>
-            </a>
-          </Link>
-
-          <Link href="/box11" passHref legacyBehavior>
-            <a className="boxCard" style={{ backgroundImage: "url('/box11.jpg')" }}>
-              <div className="boxOverlay"><h2>Box 11</h2></div>
-            </a>
-          </Link>
-
-          <Link href="/box12" passHref legacyBehavior>
-            <a className="boxCard" style={{ backgroundImage: "url('/box12.jpg')" }}>
-              <div className="boxOverlay"><h2>Box 12</h2></div>
-            </a>
-          </Link>
         </div>
       </div>
 

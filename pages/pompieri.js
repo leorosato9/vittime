@@ -2,47 +2,44 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CorpoTemplate from "../components/CorpoTemplate";
 
-export default function CarabinieriPage() {
+export default function VigiliDelFuocoPage() {
   return (
     <>
       <Header />
 
       <CorpoTemplate
         title="Vigili del Fuoco"
-        subtitle="Presenza quotidiana sul territorio, tutela della legalità e servizio allo Stato."
+        subtitle="Salvaguardia della vita, soccorso tecnico urgente e protezione civile"
         heroImage="/pompieri-hero.jpeg"
-        heroColor="#a52019"
-        quote="“Domiamo le fiamme, doniamo i cuori”"
+        heroColor="#B71C1C"
+        quote="“Flammas domamus, donamus corda”"
         quoteAuthor="Motto dei Vigili del Fuoco"
         sections={[
           {
-            blockTitle: "Storia, organizzazione e compiti",
-            image: "/carabinieri1.jpg",
-            imageAlt: "Carabinieri",
+            blockTitle: "Una storia antica, una missione moderna",
+            image: "/pompieri1.jpeg",
+            imageAlt: "Intervento di soccorso",
             paragraphs: [
-              "L’Arma dei Carabinieri nasce ufficialmente il 13 luglio 1814, con le Regie Patenti emanate da Vittorio Emanuele I di Savoia. Fin dalla sua costituzione, al Corpo dei Carabinieri Reali viene affidata una duplice missione: difendere lo Stato e garantire l’ordine e la sicurezza pubblica.",
-              "Nel corso del tempo, l’Arma ha assunto una fisionomia sempre più moderna e articolata. I Decreti Legislativi del 2000 ne hanno confermato il ruolo storico, riconoscendole il rango di Forza Armata autonoma nell’ambito del Ministero della Difesa, accanto a Esercito, Marina e Aeronautica.",
-              "Dal 2016, con l’assorbimento del Corpo Forestale dello Stato, i Carabinieri sono diventati la più importante forza di polizia ambientale d’Europa, con competenze specifiche nella tutela del patrimonio forestale, ambientale e agroalimentare.",
+              "Il Corpo Nazionale dei Vigili del Fuoco rappresenta una delle istituzioni cardine della sicurezza pubblica italiana. Sebbene le sue radici storiche risalgano alla 'Militia Vigilum' dell'antica Roma, l'assetto moderno è stato istituito nel 1941 per garantire un soccorso omogeneo su tutto il territorio. Dipendente dal Ministero dell’Interno, il Corpo opera attraverso una struttura capillare composta da personale permanente e da una preziosa componente volontaria, fondamentale nelle aree montane e nei piccoli centri.",
+              "La missione primaria è la salvaguardia della vita umana e la tutela dei beni e dell'ambiente. I compiti vanno ben oltre il semplice spegnimento degli incendi: gli operatori sono specializzati nel soccorso tecnico urgente in caso di terremoti, alluvioni, crolli, incidenti industriali e nucleari (CBRN). Questa complessità richiede una preparazione tecnica d'eccellenza, disciplina e una prontezza operativa 24 ore su 24, spesso esercitata in condizioni di estremo rischio fisico e psicologico."
             ],
           },
           {
-            blockTitle: "Servire lo Stato, anche a costo della vita",
-            image: "/carabinieri2.jpg",
-            imageAlt: "Memoria e impegno",
+            blockTitle: "Il coraggio oltre la paura: Sarno 1998",
+            image: "/pompieri2.jpg",
+            imageAlt: "Angeli del fango",
             paragraphs: [
-              "Nel corso della loro lunga storia, i Carabinieri hanno pagato un prezzo altissimo in termini di vite umane. Molti militari sono caduti nello svolgimento del servizio, difendendo la popolazione, contrastando la criminalità organizzata, il terrorismo o operando in contesti di guerra e missioni di pace.",
-              "Il sacrificio del Vicebrigadiere Salvo D’Acquisto, che nel 1943 si assunse una responsabilità non sua per salvare la vita di ventidue civili, resta uno dei simboli più alti dei valori dell’Arma: onore, coraggio, senso del dovere.",
-              "La strage di Nassiriya, avvenuta il 12 novembre 2003, rimane una ferita profonda nella memoria collettiva del Paese e testimonia il rischio affrontato ogni giorno da chi opera per la sicurezza.",
+              "Nel corso della sua storia, il Corpo ha pagato un prezzo altissimo in termini di vite umane, con uomini che hanno sacrificato tutto per salvare gli altri. Un esempio indelebile di altruismo è quello di Marco Mattiucci, vigile del fuoco volontario, caduto durante la tragica alluvione di Sarno nel maggio 1998.",
+              "In uno scenario apocalittico, Mattiucci non esitò a gettarsi nel fango per prestare soccorso alla popolazione terrorizzata. Riuscì a portare in salvo diverse persone, tra cui un bambino, strappandoli alla furia degli elementi. Mentre era ancora impegnato nelle operazioni di salvataggio, una nuova frana lo travolse, uccidendolo. Il suo gesto, dettato da un coraggio straordinario, è stato riconosciuto con la Medaglia d’Oro al Valor Civile, simbolo eterno di chi sceglie di donare il proprio cuore oltre l'ostacolo."
             ], 
           },
           {
-            blockTitle: "Una testimonianza viva",
-            image: "/carabinieri3.jpeg",
-            imageAlt: "Testimonianza",
+            blockTitle: "La tragedia di Alessandria e la memoria",
+            image: "/pompieri3.jpg",
+            imageAlt: "Caschi e onori",
             paragraphs: [
-              "A Trieste vive Daniele Livieri, Maresciallo dei Carabinieri e sopravvissuto alla strage di Nassiriya. Arruolato nel 1982, Livieri ha partecipato a missioni ad alto rischio in Bosnia, Kosovo e Iraq, nell’ambito dell’operazione “Antica Babilonia”.",
-              "Il giorno prima del suo rientro in Italia, il 12 novembre 2003, un attentato colpì la base italiana. Rimasto a lungo sotto le macerie, fu inizialmente dato per disperso. Le ferite riportate segnarono profondamente la sua vita, portando al congedo dall’Arma e al riconoscimento dello status di Vittima del Dovere.",
-              "Oggi Daniele Livieri racconta la sua esperienza ai giovani, con l’obiettivo di trasmettere il valore del servizio allo Stato e la responsabilità che accompagna chi sceglie di proteggere gli altri.",
+              "Una ferita più recente, ma altrettanto profonda, è quella inferta il 5 novembre 2019 a Quargnento, in provincia di Alessandria. Antonino Candido, Marco Triches e Matteo Gastaldo intervennero presso una cascina disabitata per una fuga di gas, ignari di essere attesi da una trappola mortale. Una violenta esplosione dolosa spezzò le loro vite mentre tentavano di mettere in sicurezza l'area per l'incolumità pubblica.",
+              "Onorare la memoria di Antonino, Marco, Matteo e di tutti i caduti del Corpo è un atto di dovere civile. Questi uomini hanno incarnato fino all’estremo sacrificio i valori più alti del servizio pubblico: solidarietà, responsabilità e altruismo. Ricordarli significa riconoscere il valore morale di chi, ogni giorno, sceglie di anteporre la sicurezza degli altri alla propria, rafforzando il senso di comunità e fiducia nelle istituzioni."
             ],
           },
         ]}

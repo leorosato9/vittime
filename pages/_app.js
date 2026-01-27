@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import Script from 'next/script'; // <--- 1. Importiamo il componente Script
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,13 +18,17 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-      {/* 2. Script esterno di Google Analytics */}
+      {/* 1. LIBRERIA IUBENDA PRINCIPALE (per i popup) */}
+      <Script 
+        src="https://cdn.iubenda.com/iubenda.js" 
+        strategy="lazyOnload" 
+      />
+
+      {/* 3. GOOGLE ANALYTICS */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-CNWQVHW5S5"
       />
-
-      {/* 3. Configurazione di Google Analytics */}
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
