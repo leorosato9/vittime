@@ -114,6 +114,7 @@ Molti di loro hanno agito con dedizione e umiltà, lontano dai riflettori. Ricor
         <section className="Slide" id="game-section">
           <div className="Game">
             <h1 className="GameTitle">Chi interviene?</h1>
+            <h3>Prova a indovinare chi interverrebbe in queste situazioni!</h3>
             <GameQuiz />
           </div>
 
