@@ -54,6 +54,19 @@ export default function HomePage() {
                   Vai all'intervista <span className="Arrow">↓</span>
                 </button>
               </div>
+
+              {/* === FRASE CONCORSO AGGIUNTA SOTTO LA CAPTION === */}
+              <div style={{ 
+                marginTop: '4.5rem', 
+                fontSize: '1rem', 
+                fontStyle: 'italic', 
+                opacity: 0.6, 
+                textAlign: 'center',
+                lineHeight: '1.4',
+                maxWidth: '400px'
+              }}>
+                Concorso di idee dal titolo: "Vittime del dovere nella costituzione: Art. 54 - Fedeltà allo stato e Sacrificio: il valore delle vittime del dovere nella costruzione di una società giusta"
+              </div>
             </div>
           </div>
 
