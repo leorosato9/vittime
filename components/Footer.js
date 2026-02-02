@@ -76,7 +76,14 @@ export default function Footer() {
 
         {/* Sezione Legale e Copyright */}
         <div className="footerInfo">
-          <hr style={{ borderColor: 'rgba(255,255,255,0.2)', margin: '2rem 0' }} />
+          
+          {/* === FRASE CONCORSO AGGIUNTA QUI === */}
+          <div style={{ marginTop: '3rem', marginBottom: '1rem', fontStyle: 'italic', opacity: 0.9 }}>
+            Concorso di idee dal titolo: "Vittime del dovere nella costituzione: Art. 54 - Fedeltà allo stato e Sacrificio: il valore delle vittime del dovere nella costruzione di una società giusta"
+          </div>
+
+          <hr style={{ borderColor: 'rgba(255,255,255,0.2)', margin: '1rem 0' }} />
+          
           <p>
             © {new Date().getFullYear()} Ideato, progettato e realizzato interamente <br/>
             dalla classe 3C del Liceo Oberdan, Trieste
